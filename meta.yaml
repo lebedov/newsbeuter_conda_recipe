@@ -1,0 +1,33 @@
+{% set build = 0 %}
+{% set version = "2.9" %}
+
+package:
+  name: newsbeuter
+  version: {{version}}
+
+about:
+  home: http://newsbeuter.org
+  license: MIT
+  summary: RSS/Atom feed reader for text terminals
+
+source:
+  fn: newsbeuter-{{version}}.tar.gz
+  url: http://newsbeuter.org/downloads/newsbeuter-{{version}}.tar.gz
+  md5: 9cf332dc7e591023147bda7add430835
+
+# also needs stfl, json-c, and curses
+requirements:
+
+  build:
+    - curl
+    - pkgconfig
+    - libxml2
+    - sqlite
+
+  run:
+    - curl
+    - libxml2
+    - sqlite
+
+build:
+  number: {{build}}
